@@ -5,16 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title >ABP School</title>
-@include('layouts.head')
+    @include('layouts.head')
+
 </head>
 <body style="height: 100vh;">
-
-
-
 @include('layouts.side_bar')
+
+
+    
+
     <div class="main-side col-10 container  gx-5"   >
+        {{-- @foreach($posts as $post) --}}
             <div class="row  d-flex align-items-center w-100 " style="flex-wrap: nowrap;height: 10%;">
-                <h1 class="h1  text gx-5 mt-3 col-9 ms-1 fs-1" >Eid el fitr 50%</h1>
+                <h1 class="h1  text gx-5 mt-3 col-9 ms-1 fs-1" >{{$post->name}}</h1>
                 <div class="d-flex w-25 darkswitch" style="justify-content: flex-end;" >
                      <div class=" col-2  d-flex rounded-pill justify-self-center  ps-1 pb-1 position-relative" style="border: #00B3FF solid 3px;width: 60px;z-index: -5;">
                     <div class="sun me-2 " style="margin-left: 1px;">
@@ -41,13 +44,13 @@
                             <div class="first-side col" >
                                 
                             <p  class="mb-0" >Nom de la promotio:</p>
-                            <h2 class=" mb-4 fs-3">Eid el fitr</h2>
+                            <h2 class=" mb-4 fs-3">{{$post->name}}</h2>
                             <p class="mb-2">pourcentage de la reduction:</p>
-                            <h2 class=" mb-4 fs-3"> 50%</h2>
+                            <h2 class=" mb-4 fs-3"> {{$post->discount}}%</h2>
                             <p class="mb-2">Date de debut:</p>
-                            <h2 class=" mb-4 fs-3">17/07/2023</h2>
+                            <h2 class=" mb-4 fs-3">{{$post->start_date}}</h2>
                             <p class="mb-0 mt-4">duree de la reduction:</p>
-                            <h1 class="fs-5">2mois et 20 jours</h1>
+                            <h1 class="fs-5">{{$post->end_date}}</h1>
                             </div>
                            
                             <div class="second-side   col-md" >  
@@ -60,15 +63,17 @@
                                 </button>
                                
                               
-                        </div>
+                            </div>
                             
                            
                             </div>
                              <div class="m-4 d-flex justify-content-end mw-100">
+                                <a href="{{route('promontion.deleteinformation',$post->id)}}">
                                 <button type="button" class="me-1 btn btn-danger"><svg xmlns="http://www.w3.org/2000/svg" color="white" width="16" height="16" fill="currentColor" class="mb-1 bi bi-trash3" viewBox="0 0 16 16">
                                     <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
                                   </svg></button>
-                                  <a href="./modifypromotion.html">
+                                </a>
+                                  <a href="{{route('promotion.modifier',$post->id)}}">
                             <button type="button"class="modify-student btn btn-primary " style="color: white;" >Modifier</button>
                         </a>
                         </div>
@@ -84,7 +89,8 @@
             </div>
          
             </div>
-        </div>
+        {{-- @endforeach --}}
+    </div>
 
  
 

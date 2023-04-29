@@ -2,21 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Formation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
-use App\Models\Course;
 
-
-class CourseController extends Controller
-
+class FormationController extends Controller
 {
+
     public function create()
     {
-        return view('courses.create');
+        return view('formations.create');
     }
+
     public function store(Request $request)
     {
         $name = $request->input('name');
+        $category = $request->input('category');
         $teacher_name = $request->input('teacher_name');
         $day = request('day');
         $hour = request('hour');
@@ -24,18 +25,19 @@ class CourseController extends Controller
         $date_and_time1 = Carbon::parse($day)->setTime($hour, $minute);
         $date_and_time = $date_and_time1->format('l g:i A');
         $price = $request->input('price');
-        $sessions_per_payment = $request->input('sessions_per_payment');
 
-        $course = new Course();
-        $course->name = $name;
-        $course->teacher_name = $teacher_name;
-        $course->date_and_time = $date_and_time;
-        $course->price = $price;
-        $course->sessions_per_payment = $sessions_per_payment;
-        $course->save();
+        $formation = new Formation();
+        $formation->name = $name;
+        $formation->category = $category;
+        $formation->teacher_name = $teacher_name;
+        $formation->date_and_time = $date_and_time;
+        $formation->price = $price;
+        $formation->save();
 
         return redirect()->route('page.formations');
     }
+
+
 
 
 }

@@ -2,26 +2,38 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Course;
 use Illuminate\Http\Request;
 use App\Models\Student;
 class RouteController extends Controller
 {
-    public function index(){
-        $posts=Student::all();
-        return view('index',compact('posts'));
+
+
+    public function index()
+    {
+        $posts = Student::all();
+        $courses = Course::all();
+        $enrolled_students = null;
+        $course = Course::find(2);
+        
+        if ($course) {
+            $enrolled_students = $course->students;
+        }
+
+        return view('index', compact('posts', 'courses', 'enrolled_students'));
     }
     public function dashboard(){
         return view('dashboard');
     }
     public function formations(){
-        return view('cours');
+        $courses = Course::all();
+        $courses = $courses->sortBy('name');
+        return view('cours',compact('courses'));
     }
     public function etudiants(){
         return view('index');
     }
-    public function promotions(){
-        return view('promotions');
-    }
+    
     public function finances(){
         return view('finances');
     }
@@ -34,5 +46,5 @@ class RouteController extends Controller
     public function education(){
         return view('educationFinanciere');
     }
-    
+
 }

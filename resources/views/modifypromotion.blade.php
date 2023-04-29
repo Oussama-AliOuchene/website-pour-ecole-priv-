@@ -37,32 +37,34 @@
                 <div class="left-side  col-md h-100  d-flex align-items-center" style="overflow: scroll;">
                 <div class=" w-100  container border background" style=" height: 90%;overflow: scroll;border-radius: 20px;">
                     <div class="p-4">
-                        <form>
+                        <form action="{{route('promontion.update',$post->id)}}" method="get">
+                            @csrf
+                            @method('POST')
                             <div class="mb-3 col-7">
                                 <label for="" class="form-label" style="font: bolder;"><h6> Nom de la promotion:</h6></label>
-                                <input class="form-control" type="text" placeholder="" aria-label="default input example">
+                                <input class="form-control" type="text" name="name" value={{$post->name}}  aria-label="default input example">
                             </div>
                         <div class="mb-3">
                             <div class="form-group">
                                 <label for="inputPhoneNumber"><h6 class="mt-2"> pourcentage de la reduction</h6></label>
                                 <div style=" width: 120px;" class="input-group">
-                                    <input type="text"  class="form-control" aria-label="Amount (to the nearest dollar)">
+                                    <input type="text"  class="form-control" name="discount" value={{$post->discount}} aria-label="Amount (to the nearest dollar)">
                                     <span style="color: gray;" class="input-group-text">%</span>
                                 </div>                            </div>
                         </div>
                        <div class="mb-3">
                         <label for="start-date">date de debut:</label>
                         <div class="start-date mt-1">
-                            <input type="date" id="start-date" name="start-date">
+                            <input type="date" name="start_date" value={{$post->start_date}}  id="start-date" name="start-date">
                         </div>
                        </div>
                        <div class="mb-3">
                         <div class="form-group">
                             <label for="inputPhoneNumber"><h6 class="mt-2"> duree de la reduction</h6></label>
                             <div style=" max-width: 150px;" class="input-group">
-                                <input type="text"  class="form-control" aria-label="Amount (to the nearest dollar)">
+                                <input type="text"  class="form-control" name="end_date" value={{$post->end_date}} aria-label="Amount (to the nearest dollar)">
                                 <span style="color: gray;" class="input-group-text">m</span>
-                                <input type="text"  class="form-control" aria-label="Amount (to the nearest dollar)">
+                                <input type="text"  class="form-control" name="end_date" value={{$post->end_date}} aria-label="Amount (to the nearest dollar)">
                                 <span style="color: gray;" class="input-group-text">j</span>
                             </div>                            </div>
                     </div>
@@ -95,12 +97,10 @@
                         <button class="btn btn-primary rounded-pill mt-2" type="submit" style="color: white;">Ajouter une formation</button>
                         
                       
-                            <div class="mb-5 me-3 d-flex justify-content-end mw-100">
-                                <a href="./promotions.html">
-                            <button type="submit" class="btn btn-primary "style="color: white;" data-bs-toggle="button" aria-pressed="true">Confirmer</button>
-                                </a>
-                        </div>
-                        </form>
+                        <div class="mb-5 d-flex justify-content-end mw-100">
+                            <button class="btn btn-primary rounded-pill mt-2" type="submit" style="color: white;">Confirmer</button>
+                          </div>
+                    </form>
                     </div>
                     
                     </div>

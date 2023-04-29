@@ -12,6 +12,7 @@
 
 
 @include('layouts.side_bar')
+
         <div class="col-2"></div>
     <div class="main-side col-10 container  gx-5" style="overflow-y: scroll; overflow-x: hidden;"  >
             <div class="row  d-flex align-items-center w-100 " style="flex-wrap: nowrap;height: 10%;">
@@ -99,55 +100,33 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th scope="row"><div class="form-check">
-            <input class="form-check-input " type="checkbox" value="" id="defaultCheck1">
-            <label class="form-check-label ms-5" for="defaultCheck1">
+        @foreach($posts as $post)
+          <tr>
+            <th scope="row"><div class="form-check">
+              <input class="form-check-input " type="checkbox" value="" id="defaultCheck1">
+              <label class="form-check-label ms-5" for="defaultCheck1">
             
-            </label>
-          </div></th>
-          <td>                 
-             <a class="text" style="text-decoration: none;" href="./promotionInformation.html">
-            Eid el fitre</a>
-          </td>
+              </label>
+            </div></th>
+            <td>                 
+               <a class="text" style="text-decoration: none;" href="{{route('promontion.edit',$post->id)}}">
+                {{$post->name}}</a>
+            </td>
       
-          <td> -50%</td>
-          <td>1 mois et 7 jours</td>
-          <td>  12 formations</td>
+            <td> {{$post->discount}}</td>
+            <td>{{$post->start_date}}</td>
+            <td>  {{$post->end_date}}</td>
           
-          <td>
-            <a href="promotions.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
-            <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
-          </svg>
-        </a>
+            <td>
+              <a href="{{route('promontion.delete',$post)}}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+              <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
+              </svg>
+              </a>
             </td>
        
-        </tr>
-        <tr>
-          <th scope="row"><div class="form-check">
-            <input class="form-check-input " type="checkbox" value="" id="defaultCheck1">
-            <label class="form-check-label ms-5" for="defaultCheck1">
-            
-            </label>
-          </div></th>
-          <td>                 
-             <a class="text" style="text-decoration: none;" href="./promotionInformation.html">
-            Eid el fitre</a>
-          </td>
-      
-          <td> -50%</td>
-          <td>1 mois et 7 jours</td>
-          <td>  12 formations</td>
-          
-          <td>
-            <a href="promotions.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
-            <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
-          </svg>
-        </a>
-            </td>
-       
-        </tr>
-       
+          </tr>
+        
+        @endforeach
       </tbody>
     </table>
                 </div>
@@ -168,44 +147,55 @@
         </div>
         <div class="conatiner h-100 row position-absolute top-0 left-0 justify-content-center align-items-center " >
            <div class="ajout-popup col-9 col-lg-4 d-none  border background" style="max-width: 400px; z-index: 20;  border-radius: 20px;">
-            <div class="p-4">
-              <form>
-                <div class="mb-3">
-                    <label for="" class="form-label col-7" style="font: bolder;"><h6> Nom de la promotion:</h6></label>
-                    <input class="form-control" type="text" placeholder="" aria-label="default input example">
-                </div>
-            <div class="mb-3">
-                <div class="form-group">
-                    <label for="inputPhoneNumber"><h6 class="mt-2"> pourcentage de la reduction</h6></label>
-                    <div style=" width: 120px;" class="input-group">
-                        <input type="text"  class="form-control" aria-label="Amount (to the nearest dollar)">
-                        <span style="color: gray;" class="input-group-text">%</span>
-                    </div>                            </div>
-            </div>
-           <div class="mb-3">
-            <label for="start-date">date de debut:</label>
-            <div class="start-date mt-1">
-                <input type="date" id="start-date" name="start-date">
-            </div>
-           </div>
-           <div class="mb-3">
-            <div class="form-group">
-                <label for="inputPhoneNumber"><h6 class="mt-2"> duree de la reduction</h6></label>
-                <div style=" max-width: 150px;" class="input-group">
-                    <input type="text"  class="form-control" aria-label="Amount (to the nearest dollar)">
-                    <span style="color: gray;" class="input-group-text">m</span>
-                    <input type="text"  class="form-control" aria-label="Amount (to the nearest dollar)">
-                    <span style="color: gray;" class="input-group-text">j</span>
-                </div>                            </div>
+    <div class="p-4">
+      <form action="{{route('promontion.store')}}" method="get">
+        @method('post')
+        @csrf
+        <div class="mb-3">
+          <label for="" class="form-label col-7" style="font: bolder;"><h6> Nom de la promotion:</h6></label>
+          <input class="form-control" type="text" name="name" placeholder="" aria-label="default input example">
         </div>
- 
-          
-                <div class="mb-5 me-3 d-flex justify-content-end mw-100">
-                    <a href="./promotions.html">
-                <button type="submit" class="btn btn-primary "style="color: white;" data-bs-toggle="button" aria-pressed="true">Confirmer</button>
-                    </a>
-            </div>
-            </form>
+
+        <div class="mb-3">
+          <div class="form-group">
+            <label for="inputPhoneNumber"><h6 class="mt-2"> pourcentage de la reduction</h6></label>
+            <div style=" width: 120px;" class="input-group">
+              <input type="text" name="discount"  placeholder="" class="form-control" aria-label="Amount (to the nearest dollar)">
+              <span style="color: gray;" class="input-group-text">%</span>
+            </div>                            
+          </div>
+        </div>
+        
+        <div class="mb-3">
+          <label for="start-date">date de debut:</label>
+          <div class="start-date mt-1">
+            <input type="date" name="start_date" id="start-date" name="start-date">
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <div class="form-group">
+            <label for="inputPhoneNumber"><h6 class="mt-2"> duree de la reduction</h6></label>
+            <div style=" max-width: 150px;" class="input-group">
+              <input type="text" name="end_date" class="form-control" aria-label="Amount (to the nearest dollar)">
+              <span style="color: gray;" class="input-group-text">m</span>
+              <input type="text" placeholder="zzzz" class="form-control" aria-label="Amount (to the nearest dollar)">
+              <span style="color: gray;" class="input-group-text">j</span>
+            </div> 
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="" class="form-label col-7" style="font: bolder;"><h6> Cours_id</h6></label>
+          <input class="form-control" type="text" name="course_id" placeholder="" aria-label="default input example">
+        </div>
+
+
+        <div class="mb-5 d-flex justify-content-end mw-100">
+          <button class="btn btn-primary rounded-pill mt-2" type="submit" style="color: white;">Confirmer</button>
+        </div>
+
+      </form>
           </div> 
           
           </div>

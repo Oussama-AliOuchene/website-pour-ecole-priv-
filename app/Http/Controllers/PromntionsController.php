@@ -36,7 +36,7 @@ class PromntionsController extends Controller
         
     }
     public function deletetout($id){
-        //?
+        //
     }
     public function deleteinformation ($id){
         Promntions::findorFail($id)->delete();
